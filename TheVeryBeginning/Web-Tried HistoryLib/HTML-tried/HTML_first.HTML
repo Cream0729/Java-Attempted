@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>顶部标题处</title>
+    <style>
+        /*优先级(权重值)：element(1) < class(10) < id(100)*/
+        h1 {
+            /*下为属性值*/
+            color: pink !important;/*直接予以最高权重值*/
+            font-size: 50px;
+            text-align: center;
+        }
+
+        .tag {
+            /*类选择*/
+            color: orange;
+            background-color: chocolate;
+            text-align: center;
+            line-height: 35px;
+            /*行高设置*/
+        }
+
+        .tag:hover {
+            /*伪类选择器，可用于检测鼠标悬浮位置，并改变属性值*/
+            color: pink;
+        }
+
+        #d {
+            /*id选择，此为示例，最好不要用*/
+            color: hotpink;
+            text-align: center;
+        }
+
+        * {
+            /*通配符选择器，选择所有标签*/
+            color: khaki;
+            text-align: center;
+        }
+
+        img {
+            /*对其进行宽/高调整,auto可根据另一个设置以原图比例调整,不写将默认为auto*/
+            width: 90px;
+            height: auto;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>此为标题标签</h1>
+    <h2>此为标题标签</h2>
+    <h3>此为标题标签</h3>
+    <h4>此为标题标签</h4>
+    <div>
+        <p>段落标签，div标签可用于划分区域，span标签可用于内部划分，h为标题标签.</p>
+        <p>id标签可用于划定唯一值，类似于java中的常量final，class标签可用于划分出各类成一组.</p>
+        <p>再次输入可用于换行，有序列表标签为ul，无序列表为ol.</p>
+        <p>例如以下输出结果</p>
+        <h3>标题</h3>
+        <ul>
+            <li id="d">序列1</li>
+            <li id="d">序列2</li>
+            <li id="d">序列3</li>
+        </ul>
+        <ol>
+            <li class="tag">序列1</li>
+            <li class="tag">序列2</li>
+            <li class="tag">序列3</li>
+        </ol>
+    </div>
+    <div>
+        <p>超链接标签使用，herf处输入链接，空白处输入输出文字信息.</p>
+        <a href="https://www.bilibili.com/">>>>点击跳转到BiliBili<<<< /a>
+                <p>显示图片此标签需要输入本地连接，后面输入未加载成功的输出结果.</p>
+                <img src="images/HAHA.gif" alt="图片加载失败...">
+    </div>
+    <button value="button">Hello~</button>
+</body>
+
+</html>

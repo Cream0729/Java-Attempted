@@ -1,0 +1,110 @@
+h1 {
+    color: lawngreen;
+    background-color: brown;
+    text-align: center;
+}
+
+.HD{
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+    color: blueviolet;
+    background-color: orange;
+    width: auto;
+    margin: 0 auto;
+}
+
+.into {
+    width: 700px;
+    height: auto;
+    margin: 0 auto 0;
+}
+
+.box {
+    float: right;
+    height: 120px;
+    width: 150px;
+    border: 10px solid pink;
+    /*完整内容如下>>>
+    border-radius: 10px;
+    border-style: solid;
+    border-color: pink;*/
+    padding: 0 0 0 50px;
+    /*内边距*/
+    margin: 0 auto 0;
+    /*外边距调整，顺序为上右下左，记逆时针*/
+    box-sizing: border-box;
+    /*设置盒子模型不变*/
+    border-radius: 25%;
+    /*顺时针*/
+    overflow: hidden;
+    /*超出盒子部分隐藏(设置auto直接加滚动条)*/
+}
+
+.final {
+    float: left;
+    width: 530px;
+    margin: auto;
+    border: 5px ridge cornflowerblue;
+    box-sizing: border-box;
+}
+
+img {
+    display: inline;
+    float: right;
+    width: 150px;
+    height: auto;
+}
+
+a {
+    float: inline-end;
+    color: rgb(203, 60, 191);
+    text-decoration: none;
+    /*下划线隐藏*/
+}
+
+.clear::before,
+.clear::after {
+    clear: both;
+    content: "";
+    display: block;
+    /*用于清除浮动的伪元素选择器*/
+}
+
+.mice:hover {
+    color: crimson;
+}
+
+.Css {
+    width: 700px;
+    height: auto;
+    border: 5px solid red;
+    margin: 7px auto;
+    padding: 0 0 0 0px;
+    box-sizing: border-box;
+    position: relative;
+    /*更改参照物于此盒子左上角*/
+}
+
+.pos {
+    position: fixed;
+    right: 150px;
+    bottom: 75px;
+    box-shadow: 5px 5px 5px black;
+    /*X Y 模糊半径 颜色(默认黑)*/
+}
+
+.Tran {
+    width: 700px;
+    height: auto;
+    border: 5px ridge forestgreen;
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0 auto 0;
+}
+.TS{
+    color: chartreuse;
+    background-color: coral;
+}

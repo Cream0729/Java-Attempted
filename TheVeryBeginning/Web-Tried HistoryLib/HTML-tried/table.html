@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格演示</title>
+</head>
+
+<body>
+    <div>
+        <table border="1"><!-- 表格类型 -->
+            <thead>
+                <th colspan="2">第一个表头</th>
+                <th>colspan可用于合并</th>
+                <th>""内表示几格</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="2">纵向合并</td>
+                    <td>1.第一个</td>
+                    <td>1.第二个</td>
+                    <td>1.第三个</td>
+                </tr>
+                <tr>
+                    <td>2.第一个</td>
+                    <td>2.第二个</td>
+                    <td>2.第三个</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <form action=""><!-- action内是向xxx服务器输入数据 -->  
+            <label>radio使用1=></label>
+            <input type="radio" name="单选连接">
+            <label>radio使用2=></label>
+            <input type="radio" name="单选连接">
+            <label>复选框使用=></label>
+            <input type="checkbox">
+            <input type="checkbox">
+            <input type="checkbox">
+            <label for="指向id">lable标签用于开头的提示</label>
+            <input id="指向id" for="id2" type="数据类型，默认text" placeholder="表内显示文本">
+            <input type="password" placeholder="加密字符">
+            <select name="向服务器发送的信息" id="">
+                <option value="">select标签使用1</option>
+                <option value="">select标签使用2</option>
+            </select>
+            <input type="submit" value="控制其中文本">
+        </form>
+    </div>
+</body>
+
+</html>
