@@ -102,12 +102,12 @@ public class InputControlStation {
         return Long.parseLong(id);
     }
 
-    public String date(String message) {
-        System.out.print("Now, enter " + message + " date(yyyy-mm-dd): ");
+    public String date () {
+        System.out.println("Now, enter date (yyyy): ");
         String date = sc.next();
-        while (!(date.matches("((\\d{4})-(1[0-2]|0[1-9])-([0-2]\\d|(3[0-1]|[0-2]\\d)))"))) {
+        while (!(date.matches("^" + "(20)(\\d{2})" + "$"))) {
             System.out.println("\n>>> Wrong Enter! Please enter again! ");
-            System.out.print("Now, enter registration date(yyyy-mm-dd): ");
+            System.out.print("Now, enter date (yyyy): ");
             date = sc.next();
         }
         return date;

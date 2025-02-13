@@ -13,7 +13,7 @@ public class InformationControlStation {
         label:
         while (true) {
             try {
-                System.out.println("=====信息录入=====");
+                System.out.println("\n=====信息录入=====");
                 System.out.println("‖ <1>学生信息录入 ‖");
                 System.out.println("‖ <2>教职信息录入 ‖");
                 System.out.println("‖ <3>结束本次录入 ‖");
