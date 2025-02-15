@@ -2,6 +2,7 @@ package SchoolInformationManagement;
 
 import java.io.Serializable;
 
+@SuppressWarnings("ALL")
 public class PersonData implements Serializable {
     private static final long serialVersionUID = -843543327360974269L;
     private String modifiedDate;
@@ -57,40 +58,40 @@ public class PersonData implements Serializable {
     public void setId(long id) {
         this.id = id;
     }
-}
 
-class TeacherData extends PersonData implements Serializable {
-    private static final long serialVersionUID = 180198508616430297L;
-    private String type;
+    static class Teacher extends PersonData implements Serializable {
+        private static final long serialVersionUID = 180198508616430297L;
+        private String type;
 
-    public TeacherData(String dateCreated, String name, String gender, int age, long id, String type) {
-        super(dateCreated, name, gender, age, id);
-        this.type = type;
+        public Teacher(String dateCreated, String name, String gender, int age, long id, String type) {
+            super(dateCreated, name, gender, age, id);
+            this.type = type;
+        }
+
+        public String getType() {
+            return type;
+        }
+
+        public void setType(String type) {
+            this.type = type;
+        }
     }
 
-    public String getType() {
-        return type;
-    }
+    static class Student extends PersonData implements Serializable {
+        private static final long serialVersionUID = -4172426580781334308L;
+        private String job;
 
-    public void setType(String type) {
-        this.type = type;
-    }
-}
+        public Student(String dateCreated, String name, String gender, int age, long id, String job) {
+            super(dateCreated, name, gender, age, id);
+            this.job = job;
+        }
 
-class StudentData extends PersonData implements Serializable {
-    private static final long serialVersionUID = -4172426580781334308L;
-    private String job;
+        public String getJob() {
+            return job;
+        }
 
-    public StudentData(String dateCreated, String name, String gender, int age, long id, String job) {
-        super(dateCreated, name, gender, age, id);
-        this.job = job;
-    }
-
-    public String getJob() {
-        return job;
-    }
-
-    public void setJob(String job) {
-        this.job = job;
+        public void setJob(String job) {
+            this.job = job;
+        }
     }
 }

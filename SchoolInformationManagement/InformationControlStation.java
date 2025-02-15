@@ -5,8 +5,8 @@ import java.util.Scanner;
 
 public class InformationControlStation {
     static InputControlStation check = new InputControlStation();
-    static ArrayList<StudentData> student = new ArrayList<>();
-    static ArrayList<TeacherData> teacher = new ArrayList<>();
+    static ArrayList<PersonData.Student> student = new ArrayList<PersonData.Student>();
+    static ArrayList<PersonData.Teacher> teacher = new ArrayList<PersonData.Teacher>();
     static Scanner input = new Scanner(System.in);
 
     public void inputInformation() {
@@ -56,7 +56,7 @@ public class InformationControlStation {
             String job = input.next();
             System.out.println("student { name:" + name + ", gender:" + gender + ", age:" + age + ", id:" + id + ", job:" + job + "}");
             if (check.isValid("是否确定录入？")) {
-                student.add(new StudentData(null, name, gender, age, id, job));
+                student.add(new PersonData.Student(null, name, gender, age, id, job));
             } else {
                 System.err.println("录入失败<IEntry failed>");
             }
@@ -65,7 +65,7 @@ public class InformationControlStation {
             String type = input.next();
             System.out.println("teacher {name:" + name + ", gender:" + gender + ", age:" + age + ", id:" + id + ", type:" + type + "}");
             if (check.isValid("是否确定录入？")) {
-                teacher.add(new TeacherData(null, name, gender, age, id, type));
+                teacher.add(new PersonData.Teacher(null, name, gender, age, id, type));
             } else {
                 System.err.println("录入失败<IEntry failed>");
             }
