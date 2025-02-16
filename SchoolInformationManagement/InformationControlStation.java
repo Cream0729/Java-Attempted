@@ -1,15 +1,16 @@
 package SchoolInformationManagement;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Scanner;
 
 public class InformationControlStation {
     static InputControlStation check = new InputControlStation();
-    static ArrayList<PersonData.Student> student = new ArrayList<PersonData.Student>();
-    static ArrayList<PersonData.Teacher> teacher = new ArrayList<PersonData.Teacher>();
+    static FileControlStation file = new FileControlStation();
+    static HashSet<PersonData.Student> student = new HashSet<>();
+    static HashSet<PersonData.Teacher> teacher = new HashSet<>();
     static Scanner input = new Scanner(System.in);
 
-    public void inputInformation() {
+    public void inputInformation(String date) {
         label:
         while (true) {
             try {
@@ -32,6 +33,7 @@ public class InformationControlStation {
                     default:
                         throw new Exception();
                 }
+                file.inputData(student, teacher, date);
                 if (!check.isValid("是否继续录入数据？")) {
                     break;
                 }

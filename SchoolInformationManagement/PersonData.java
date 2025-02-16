@@ -1,6 +1,7 @@
 package SchoolInformationManagement;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 @SuppressWarnings("ALL")
 public class PersonData implements Serializable {
@@ -59,12 +60,29 @@ public class PersonData implements Serializable {
         this.id = id;
     }
 
-    static class Teacher extends PersonData implements Serializable {
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        PersonData other = (PersonData) obj;
+        return id == other.id;
+    }
+
+    public static class Teacher extends PersonData implements Serializable {
         private static final long serialVersionUID = 180198508616430297L;
         private String type;
 
-        public Teacher(String dateCreated, String name, String gender, int age, long id, String type) {
-            super(dateCreated, name, gender, age, id);
+        public Teacher(String modifiedDate, String name, String gender, int age, long id, String type) {
+            super(modifiedDate, name, gender, age, id);
             this.type = type;
         }
 
@@ -75,14 +93,35 @@ public class PersonData implements Serializable {
         public void setType(String type) {
             this.type = type;
         }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(super.getId());
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null || getClass() != obj.getClass()) {
+                return false;
+            }
+            Teacher other = (Teacher) obj;
+            return super.getId() == other.getId();
+        }
+
+        public String toString() {
+            return "Teacher{" + "modifiedDate=" + super.modifiedDate + ", name:" + super.name + ", gender:" + super.gender + ", age:" + super.age + ", id:" + super.id + ", type:" + type + '}';
+        }
     }
 
-    static class Student extends PersonData implements Serializable {
+    public static class Student extends PersonData implements Serializable {
         private static final long serialVersionUID = -4172426580781334308L;
         private String job;
 
-        public Student(String dateCreated, String name, String gender, int age, long id, String job) {
-            super(dateCreated, name, gender, age, id);
+        public Student(String modifiedDate, String name, String gender, int age, long id, String job) {
+            super(modifiedDate, name, gender, age, id);
             this.job = job;
         }
 
@@ -92,6 +131,27 @@ public class PersonData implements Serializable {
 
         public void setJob(String job) {
             this.job = job;
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(super.getId());
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null || getClass() != obj.getClass()) {
+                return false;
+            }
+            Student other = (Student) obj;
+            return super.getId() == other.getId();
+        }
+
+        public String toString() {
+            return "Student{" + "modifiedDate=" + super.modifiedDate + ", name=" + super.name + ", gender=" + super.gender + ", age=" + super.age + ", id=" + super.id + ", job=" + job + '}';
         }
     }
 }
