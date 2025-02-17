@@ -4,8 +4,7 @@ import java.util.Scanner;
 
 public class SIMS {
     static Scanner sc = new Scanner(System.in);
-    static InputControlStation ic = new InputControlStation();
-    static InformationControlStation in = new InformationControlStation();
+
 
     public static void main(String[] args) {
         label:
@@ -22,7 +21,6 @@ public class SIMS {
                 System.out.print(">>> Now enter your choice : ");
                 switch (sc.nextLine()) {
                     case "1":
-                        in.inputInformation(ic.date());
                         break inter;
                     case "2":
                         break inter;
@@ -38,6 +36,6 @@ public class SIMS {
                         break;
                 }
             }
-        } while (!ic.isValid("Will you exit the program?"));
+        } while (true);
     }
 }

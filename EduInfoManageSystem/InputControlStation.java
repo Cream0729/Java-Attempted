@@ -57,7 +57,7 @@ public class InputControlStation {
      */
     public String gender() {
         while (true) {  // 规范检测（性别）
-            System.out.println("Now, enter \"male\" or \"female\" : ");
+            System.out.print("Now, enter \"male\" or \"female\" : ");
             String gender = sc.next();
             if (gender.equals("male") || gender.equals("female")) {
                 return gender;

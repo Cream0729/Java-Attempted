@@ -7,6 +7,7 @@ import java.io.Serializable;
 public class Person implements Serializable {
     @Serial
     private static final long serialVersionUID = 363810234157450687L;
+
     private long id;
     private String editDate;
     private String name;
@@ -66,17 +67,18 @@ public class Person implements Serializable {
 
     @Override
     public boolean equals(Object o) {
+        if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Person person = (Person) o;
-        return id == person.id && age == person.age && Objects.equals(editDate, person.editDate) && Objects.equals(name, person.name) && Objects.equals(gender, person.gender);
+        return id == person.id;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(id);
+        return Objects.hash(id);
     }
 
-    public static class StudentData extends Person {
+    public static class StudentData extends Person implements Comparable<StudentData> {
         @Serial
         private static final long serialVersionUID = -716755648051257192L;
         private String job;
@@ -99,30 +101,35 @@ public class Person implements Serializable {
 
         @Override
         public boolean equals(Object o) {
+            if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
-            if (!super.equals(o)) return false;
             StudentData student = (StudentData) o;
-            return Objects.equals(job, student.job);
+            return this.getId() == student.getId();
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(this.getId());
+        }
+
+        @Override
+        public int compareTo(StudentData o) {
+            return Long.compare(this.getId(), o.getId());
         }
 
         @Override
         public String toString() {
-            return "Student{" + "id=" + super.id + ", editDate='" + super.editDate + '\'' + ", name='" + super.name + '\'' + ", gender='" + super.gender + '\'' + ", age=" + super.age + ", job='" + this.job + "'}";
+            return ("studentData -> {id=" + super.getId() + ", editDate=" + super.getEditDate() + ", name=" + super.getName() + ", gender=" + super.getGender() + ", age=" + super.getAge() + ", job=" + this.job + "}");
         }
     }
 
-    public static class TeacherData extends Person {
+    public static class TeacherData extends Person implements Comparable<TeacherData> {
         @Serial
         private static final long serialVersionUID = 5696540458805120006L;
         private String type;
         private String job;
 
         public TeacherData() {
-        }
-
-        public TeacherData(String type, String job) {
-            this.type = type;
-            this.job = job;
         }
 
         public TeacherData(long id, String editDate, String name, String gender, int age, String type, String job) {
@@ -149,15 +156,25 @@ public class Person implements Serializable {
 
         @Override
         public boolean equals(Object o) {
+            if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
-            if (!super.equals(o)) return false;
-            TeacherData that = (TeacherData) o;
-            return Objects.equals(type, that.type) && Objects.equals(job, that.job);
+            TeacherData teacher = (TeacherData) o;
+            return this.getId() == teacher.getId();
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(this.getId());
+        }
+
+        @Override
+        public int compareTo(TeacherData o) {
+            return Long.compare(this.getId(), o.getId());
         }
 
         @Override
         public String toString() {
-            return "TeacherData{" + "id=" + super.id + ", editDate='" + super.editDate + '\'' + ", name='" + super.name + '\'' + ", gender='" + super.gender + '\'' + ", age=" + super.age + ", type='" + type + '\'' + ", job='" + job + '\'' + "'}";
+            return ("teacherData -> {id=" + super.getId() + ", editDate=" + super.getEditDate() + ", name=" + super.getName() + ", gender=" + super.getGender() + ", age=" + super.getAge() + ", type=" + this.type + ", job=" + this.job + "}");
         }
     }
 }

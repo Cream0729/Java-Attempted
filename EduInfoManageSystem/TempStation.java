@@ -29,20 +29,12 @@ public class TempStation {
         }
     }
 
-    public void add(Person.StudentData student) {
-        if (student != null) {
-            studentsTemp.add(student);
-        } else {
-            System.err.println("Warning: Haven't get any data here.");
-        }
+    public HashSet<Person.StudentData> getStudentsTemp() {
+        return studentsTemp;
     }
 
-    public void add(Person.TeacherData teacher) {
-        if (teacher != null) {
-            teachersTemp.add(teacher);
-        } else {
-            System.err.println("Warning: Haven't get any data here.");
-        }
+    public HashSet<Person.TeacherData> getTeachersTemp() {
+        return teachersTemp;
     }
 
     public void save() {
