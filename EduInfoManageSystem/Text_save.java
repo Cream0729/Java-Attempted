@@ -2,10 +2,10 @@ package EduInfoManageSystem;
 
 @SuppressWarnings("ALL")
 public class Text_save {
-    static TempStation temp = new TempStation();
+    static TempStation temp = new TempStation("2024");
 
     public static void main(String[] args) {
-        if (false) {
+        if (true) {
             // StudentData for text.
             temp.add(new Person.StudentData(1L, null, "Alice", "Female", 20, "Math"));
             temp.add(new Person.StudentData(2L, null, "Bob", "Male", 21, "History"));
@@ -20,9 +20,9 @@ public class Text_save {
             temp.add(new Person.TeacherData(104L, null, "Charlie", "Male", 37, "Teacher", "Math"));
             temp.add(new Person.TeacherData(105L, null, "Daisy", "Female", 43, "Teacher", "English"));
 
-            temp.save("2024");
+            temp.save();
         } else {
-            temp.read("2024");
+            temp.read();
         }
     }
 }
