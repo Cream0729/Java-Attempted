@@ -4,7 +4,7 @@ import java.util.HashSet;
 
 public class Test_FileControl {
     public static void main(String[] args) {
-        re();
+        in();
     }
 
     public static void in (){
@@ -26,10 +26,5 @@ public class Test_FileControl {
         // 创建FileControl对象并调用inputData方法
         FileControlStation fileControlStation = new FileControlStation();
         fileControlStation.inputData(students, teachers, "2022-02-16");
-    }
-
-    public static void re(){
-        FileControlStation fileControlStation = new FileControlStation();
-        fileControlStation.readData("2022-02-16");
     }
 }

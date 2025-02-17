@@ -22,7 +22,7 @@ public class SIMS {
                 System.out.print(">>> Now enter your choice : ");
                 switch (sc.nextLine()) {
                     case "1":
-                        in.inputInformation();
+                        in.inputInformation(ic.date());
                         break inter;
                     case "2":
                         break inter;
