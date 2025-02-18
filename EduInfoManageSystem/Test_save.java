@@ -3,7 +3,7 @@ package EduInfoManageSystem;
 import java.util.HashSet;
 
 @SuppressWarnings("ALL")
-public class Text_save {
+public class Test_save {
     static FileControlStation temp = new FileControlStation("2024");
 
     public static void main(String[] args) {

@@ -6,6 +6,7 @@ import java.util.HashSet;
 public class FileControlStation {
     private final HashSet<DataStation.Student> studentsTemp = new HashSet<>();
     private final HashSet<DataStation.Teacher> teachersTemp = new HashSet<>();
+    private boolean control = false;
     private final String date;
 
     public FileControlStation(String date) {
@@ -34,6 +35,10 @@ public class FileControlStation {
      * 直接搜索已传入本类构造的数据
      */
     public void read() {
+        if (control) {
+            System.out.println("\n>>> Search [" + this.date + ".data] failed\n");
+            throw new RuntimeException();
+        }
         System.out.println("\n>>> Searching [" + this.date + ".data] ...\n");
 
         for (DataStation.Student student : this.studentsTemp) {
@@ -50,9 +55,14 @@ public class FileControlStation {
      * @param prompt 提示文本控制
      */
     public void save(boolean prompt) {
+        if (control) {
+            System.out.println("\n>>> Save [" + this.date + ".data] failed\n");
+            throw new RuntimeException();
+        }
         (new Thread(new Save(this.date, this.studentsTemp, this.teachersTemp, prompt))).start();
         studentsTemp.clear();
         teachersTemp.clear();
+        control = true;
     }
 
     public HashSet<DataStation.Student> getStudentsTemp() {
