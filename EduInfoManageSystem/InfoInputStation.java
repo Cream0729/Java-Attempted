@@ -51,6 +51,10 @@ public class InfoInputStation {
         }
     }
 
+    /**
+     * 传入预定的数据类型以保存数据
+     * @param type 数据类型
+     */
     private void personInformation(String type) {
         do {
             System.out.println("\n>>> Class [" + type + "] input start.");
@@ -87,6 +91,7 @@ public class InfoInputStation {
                 }
 
             } else {
+                // 非预定下异常传入（非输入）数据的异常抛出
                 throw new RuntimeException();
             }
         } while (stan.isValid(">>> 是否继续录入 [" + type + "] 数据？"));

@@ -15,33 +15,24 @@ public class FileControlStation {
             this.date = date;
             File file = new File("src" + File.separator + "EduInfoManageSystem", this.date + ".data");
             if (file.exists()) {
+                // 若在创建对象时文件存在，则复制数据到本类中缓存
                 ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
                 studentsTemp.addAll((HashSet<DataStation.Student>) ois.readObject());
                 teachersTemp.addAll((HashSet<DataStation.Teacher>) ois.readObject());
                 ois.close();
             } else {
-                studentsTemp.add(new DataStation.Student(0L, "editDate", "name", "gender", 0, "job"));
-                teachersTemp.add(new DataStation.Teacher(0L, "editDate", "name", "gender", 0, "type", "job"));
+                // 若在创建对象时文件不存在，则生成一个默认数据
+                studentsTemp.add(new DataStation.Student(0L, "editDate", "name", "gender", 99, "job"));
+                teachersTemp.add(new DataStation.Teacher(0L, "editDate", "name", "gender", 99, "type", "job"));
             }
         } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public HashSet<DataStation.Student> getStudentsTemp() {
-        return studentsTemp;
-    }
-
-    public HashSet<DataStation.Teacher> getTeachersTemp() {
-        return teachersTemp;
-    }
-
-    public void save(boolean prompt) {
-        (new Thread(new Save(this.date, this.studentsTemp, this.teachersTemp, prompt))).start();
-        studentsTemp.clear();
-        teachersTemp.clear();
-    }
-
+    /**
+     * 直接搜索已传入本类构造的数据
+     */
     public void read() {
         System.out.println("\n>>> Searching [" + this.date + ".data] ...\n");
 
@@ -54,6 +45,25 @@ public class FileControlStation {
         }
     }
 
+    /**
+     * 对本类中已缓存的数据进行保存，并清理缓存（最终操作）
+     * @param prompt 提示文本控制
+     */
+    public void save(boolean prompt) {
+        (new Thread(new Save(this.date, this.studentsTemp, this.teachersTemp, prompt))).start();
+        studentsTemp.clear();
+        teachersTemp.clear();
+    }
+
+    public HashSet<DataStation.Student> getStudentsTemp() {
+        return studentsTemp;
+    }
+
+    public HashSet<DataStation.Teacher> getTeachersTemp() {
+        return teachersTemp;
+    }
+
+    // 线程站
     private static class Save implements Runnable {
         private final HashSet<DataStation.Student> studentData;
         private final HashSet<DataStation.Teacher> teacherData;
@@ -61,6 +71,7 @@ public class FileControlStation {
         private final boolean prompt;
         private final File file;
 
+        // 将FileControlStation.save中的数据复制到类中，以保存数据
         public Save(String fileName, HashSet<DataStation.Student> students, HashSet<DataStation.Teacher> teachers, boolean prompt) {
             this.prompt = prompt;
             this.fileName = fileName;
@@ -71,6 +82,7 @@ public class FileControlStation {
 
         @Override
         public void run() {
+            // 序列化并写入文件
             try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))) {
                 oos.writeObject(studentData);
                 oos.writeObject(teacherData);

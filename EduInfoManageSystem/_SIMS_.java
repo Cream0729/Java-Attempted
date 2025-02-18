@@ -38,7 +38,7 @@ public class _SIMS_ {
                             throw new IllegalArgumentException();
                     }
                 } catch (IllegalArgumentException ignored) {
-                    System.err.println("\n非法输入，请重试");
+                    System.err.println("\nentered the wrong choice, please try again.");
                 }
             }
             if (control.isValid(">>> 是否退出 [S.I.M.S] 系统？")) {
