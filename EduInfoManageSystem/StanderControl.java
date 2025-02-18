@@ -7,7 +7,7 @@ import java.util.Scanner;
  * 信息输入规范控制站点（工具类）
  * <p>基础硬性检测，为减免错误产生
  */
-public class InputControlStation {
+public class StanderControl {
     static Scanner sc = new Scanner(System.in);
 
     // 对省份代码，专业代码，唯一标识常量化
@@ -39,7 +39,7 @@ public class InputControlStation {
      */
     public boolean isValid(String message) {
         while (true) {  // 规范检测（Yes/No）
-            System.out.println(message);
+            System.out.println("\n" + message);
             System.out.print("Now, enter \"yes\\Y\" or \"no\\N\" : ");
             String input = sc.next();
             if (input.equals("yes") || input.equals("Y") || input.equals("no") || input.equals("N")) {
@@ -103,7 +103,7 @@ public class InputControlStation {
     }
 
     public String date () {
-        System.out.println("Now, enter date (yyyy): ");
+        System.out.print("Now, enter date (yyyy): ");
         String date = sc.next();
         while (!(date.matches("^" + "(20)(\\d{2})" + "$"))) {
             System.out.println("\n>>> Wrong Enter! Please enter again! ");
@@ -111,5 +111,9 @@ public class InputControlStation {
             date = sc.next();
         }
         return date;
+    }
+
+    public boolean date (String date) {
+        return (date.matches("^" + "(20)(\\d{2})" + "$"));
     }
 }

@@ -3,15 +3,15 @@ package EduInfoManageSystem;
 import java.util.HashSet;
 import java.util.Scanner;
 
-public class InfoControlStation {
-    private InputControlStation check = new InputControlStation();
-    private HashSet<Person.StudentData> studentsTemp = null;
-    private HashSet<Person.TeacherData> teachersTemp = null;
-    private Scanner input = new Scanner(System.in);
-    private TempStation temp = null;
+public class InfoInputStation {
+    private final StanderControl stan = new StanderControl();
+    private final Scanner input = new Scanner(System.in);
+    private final HashSet<DataStation.Student> studentsTemp;
+    private final HashSet<DataStation.Teacher> teachersTemp;
+    private final FileControlStation temp;
 
-    public InfoControlStation(String date) {
-        temp = new TempStation(date);
+    public InfoInputStation(String date) {
+        temp = new FileControlStation(date);
         studentsTemp = temp.getStudentsTemp();
         teachersTemp = temp.getTeachersTemp();
     }
@@ -25,14 +25,15 @@ public class InfoControlStation {
                 System.out.println("‖ <2>教职信息录入 ‖");
                 System.out.println("‖ <3>结束本次录入 ‖");
                 System.out.println("================");
+
                 System.out.print("\n>>> 输入序号以执行：");
                 int choice = input.nextInt();
                 switch (choice) {
                     case 1:
-                        personInformation("studentsData");
+                        personInformation("Student");
                         break;
                     case 2:
-                        personInformation("teachersData");
+                        personInformation("Teacher");
                         break;
                     case 3:
                         break label;
@@ -40,8 +41,8 @@ public class InfoControlStation {
                         throw new Exception();
                 }
 
-                if (check.isValid("是否退出本次录入程序？")) {
-                    temp.save();
+                if (stan.isValid(">>> 是否退出本次录入程序？")) {
+                    temp.save(false);
                     break;
                 }
             } catch (Exception ignored) {
@@ -53,32 +54,39 @@ public class InfoControlStation {
     private void personInformation(String type) {
         do {
             System.out.println("\n>>> Class [" + type + "] input start.");
-            long id = check.id();
+            long id = stan.id();
             System.out.print("Now, Enter name: ");
             String name = input.next();
-            String gender = check.gender();
-            int age = check.age();
-            if (type.equals("studentsData")) {
+            String gender = stan.gender();
+            int age = stan.age();
+
+            if (type.equals("Student")) {
+
                 System.out.print("Now, Enter job: ");
                 String job = input.next();
-                System.out.println("\n" + type + "{id=" + id + ", editDate='null'" + ", name=" + name + ", gender=" + gender + ", age=" + age + ", job=" + job + "}");
-                if (check.isValid(">>> 是否录入本次数据？")) {
-                    studentsTemp.add(new Person.StudentData(id, "null", name, gender, age, job));
+
+                System.out.println("\n" + type + " {id=" + id + ", editDate='null'" + ", name=" + name + ", gender=" + gender + ", age=" + age + ", job=" + job + "}");
+                if (stan.isValid(">>> 是否录入以上数据？")) {
+                    studentsTemp.add(new DataStation.Student(id, "null", name, gender, age, job));
                 } else {
-                    System.out.println(">>> 本次数据未录入...\n");
+                    System.out.println(">>> 本次数据未录入...");
                 }
-            } else if (type.equals("teachersData")) {
+
+            } else if (type.equals("Teacher")) {
+
                 System.out.print("Now, Enter type: ");
                 String tType = input.next();
                 System.out.print("Now, Enter job: ");
                 String job = input.next();
-                System.out.println("\n" + type + "{id=" + id + ", editDate='null'" + ", name=" + name + ", gender=" + gender + ", age=" + age + ", type=" + tType + ", job=" + job + "}");
-                if (check.isValid(">>> 是否录入本次数据？")) {
-                    teachersTemp.add(new Person.TeacherData(id, "null", name, gender, age, tType, job));
+
+                System.out.println("\n" + type + " {id=" + id + ", editDate='null'" + ", name=" + name + ", gender=" + gender + ", age=" + age + ", type=" + tType + ", job=" + job + "}");
+                if (stan.isValid(">>> 是否录入以上数据？")) {
+                    teachersTemp.add(new DataStation.Teacher(id, "null", name, gender, age, tType, job));
                 } else {
-                    System.out.println(">>> 本次数据未录入...\n");
+                    System.out.println(">>> 本次数据未录入...");
                 }
+
             }
-        } while (check.isValid(">>> 是否继续录入 [" + type + "] 数据？"));
+        } while (stan.isValid(">>> 是否继续录入 [" + type + "] 数据？"));
     }
 }

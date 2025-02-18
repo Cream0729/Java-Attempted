@@ -4,7 +4,7 @@ import java.io.Serial;
 import java.util.Objects;
 import java.io.Serializable;
 
-public class Person implements Serializable {
+public class DataStation implements Serializable {
     @Serial
     private static final long serialVersionUID = 363810234157450687L;
 
@@ -14,10 +14,10 @@ public class Person implements Serializable {
     private String gender;
     private int age;
 
-    public Person() {
+    public DataStation() {
     }
 
-    public Person(long id, String editDate, String name, String gender, int age) {
+    public DataStation(long id, String editDate, String name, String gender, int age) {
         this.id = id;
         this.editDate = editDate;
         this.name = name;
@@ -69,8 +69,8 @@ public class Person implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Person person = (Person) o;
-        return id == person.id;
+        DataStation dataStation = (DataStation) o;
+        return id == dataStation.id;
     }
 
     @Override
@@ -78,15 +78,15 @@ public class Person implements Serializable {
         return Objects.hash(id);
     }
 
-    public static class StudentData extends Person implements Comparable<StudentData> {
+    public static class Student extends DataStation implements Comparable<Student> {
         @Serial
         private static final long serialVersionUID = -716755648051257192L;
         private String job;
 
-        public StudentData() {
+        public Student() {
         }
 
-        public StudentData(long id, String editDate, String name, String gender, int age, String job) {
+        public Student(long id, String editDate, String name, String gender, int age, String job) {
             super(id, editDate, name, gender, age);
             this.job = job;
         }
@@ -103,7 +103,7 @@ public class Person implements Serializable {
         public boolean equals(Object o) {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
-            StudentData student = (StudentData) o;
+            Student student = (Student) o;
             return this.getId() == student.getId();
         }
 
@@ -113,26 +113,26 @@ public class Person implements Serializable {
         }
 
         @Override
-        public int compareTo(StudentData o) {
+        public int compareTo(Student o) {
             return Long.compare(this.getId(), o.getId());
         }
 
         @Override
         public String toString() {
-            return ("studentData -> {id=" + super.getId() + ", editDate=" + super.getEditDate() + ", name=" + super.getName() + ", gender=" + super.getGender() + ", age=" + super.getAge() + ", job=" + this.job + "}");
+            return ("studentData -> {id=" + super.getId() + ", editDate='" + super.getEditDate() + "', name='" + super.getName() + "', gender='" + super.getGender() + "', age=" + super.getAge() + ", job='" + this.job + "'}");
         }
     }
 
-    public static class TeacherData extends Person implements Comparable<TeacherData> {
+    public static class Teacher extends DataStation implements Comparable<Teacher> {
         @Serial
         private static final long serialVersionUID = 5696540458805120006L;
         private String type;
         private String job;
 
-        public TeacherData() {
+        public Teacher() {
         }
 
-        public TeacherData(long id, String editDate, String name, String gender, int age, String type, String job) {
+        public Teacher(long id, String editDate, String name, String gender, int age, String type, String job) {
             super(id, editDate, name, gender, age);
             this.type = type;
             this.job = job;
@@ -158,7 +158,7 @@ public class Person implements Serializable {
         public boolean equals(Object o) {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
-            TeacherData teacher = (TeacherData) o;
+            Teacher teacher = (Teacher) o;
             return this.getId() == teacher.getId();
         }
 
@@ -168,13 +168,13 @@ public class Person implements Serializable {
         }
 
         @Override
-        public int compareTo(TeacherData o) {
+        public int compareTo(Teacher o) {
             return Long.compare(this.getId(), o.getId());
         }
 
         @Override
         public String toString() {
-            return ("teacherData -> {id=" + super.getId() + ", editDate=" + super.getEditDate() + ", name=" + super.getName() + ", gender=" + super.getGender() + ", age=" + super.getAge() + ", type=" + this.type + ", job=" + this.job + "}");
+            return ("teacherData -> {id=" + super.getId() + ", editDate='" + super.getEditDate() + "', name='" + super.getName() + "', gender='" + super.getGender() + "', age=" + super.getAge() + ", type='" + this.type + "', job='" + this.job + "'}");
         }
     }
 }

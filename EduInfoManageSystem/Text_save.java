@@ -4,29 +4,29 @@ import java.util.HashSet;
 
 @SuppressWarnings("ALL")
 public class Text_save {
-    static TempStation temp = new TempStation("2024");
+    static FileControlStation temp = new FileControlStation("2024");
 
     public static void main(String[] args) {
-        HashSet<Person.StudentData> studentsTemp = temp.getStudentsTemp();
-        HashSet<Person.TeacherData> teachersTemp = temp.getTeachersTemp();
-        InfoControlStation ics = new InfoControlStation("2024");
+        HashSet<DataStation.Student> studentsTemp = temp.getStudentsTemp();
+        HashSet<DataStation.Teacher> teachersTemp = temp.getTeachersTemp();
+        InfoInputStation ics = new InfoInputStation("2024");
 
         if (false) {
-            // StudentData for text.
-            studentsTemp.add(new Person.StudentData(1, null, "Alice", "Female", 20, "Math"));
-            studentsTemp.add(new Person.StudentData(2, null, "Bob", "Male", 21, "History"));
-            studentsTemp.add(new Person.StudentData(3, null, "Charlie", "Male", 22, "Science"));
-            studentsTemp.add(new Person.StudentData(4, null, "Daisy", "Female", 23, "English"));
-            studentsTemp.add(new Person.StudentData(5, null, "Eva", "Female", 24, "Art"));
+            // Student for text.
+            studentsTemp.add(new DataStation.Student(1, null, "Alice", "Female", 20, "Math"));
+            studentsTemp.add(new DataStation.Student(2, null, "Bob", "Male", 21, "History"));
+            studentsTemp.add(new DataStation.Student(3, null, "Charlie", "Male", 22, "Science"));
+            studentsTemp.add(new DataStation.Student(4, null, "Daisy", "Female", 23, "English"));
+            studentsTemp.add(new DataStation.Student(5, null, "Eva", "Female", 24, "Art"));
 
-            // TeacherData for text.
-            teachersTemp.add(new Person.TeacherData(101, null, "Frank", "Male", 40, "Teacher", "Math"));
-            teachersTemp.add(new Person.TeacherData(102, null, "Alice", "Female", 32, "Teacher", "Chinese"));
-            teachersTemp.add(new Person.TeacherData(103, null, "Bob", "Male", 51, "Teacher", "History"));
-            teachersTemp.add(new Person.TeacherData(104, null, "Charlie", "Male", 37, "Teacher", "Math"));
-            teachersTemp.add(new Person.TeacherData(105, null, "Daisy", "Female", 43, "Teacher", "English"));
+            // Teacher for text.
+            teachersTemp.add(new DataStation.Teacher(101, null, "Frank", "Male", 40, "Teacher", "Math"));
+            teachersTemp.add(new DataStation.Teacher(102, null, "Alice", "Female", 32, "Teacher", "Chinese"));
+            teachersTemp.add(new DataStation.Teacher(103, null, "Bob", "Male", 51, "Teacher", "History"));
+            teachersTemp.add(new DataStation.Teacher(104, null, "Charlie", "Male", 37, "Teacher", "Math"));
+            teachersTemp.add(new DataStation.Teacher(105, null, "Daisy", "Female", 43, "Teacher", "English"));
 
-            temp.save();
+            temp.save(false);
         } else {
             temp.read();
         }
