@@ -52,8 +52,6 @@ public class FileControlStation {
         for (DataStation.Teacher teacher : this.teachersTemp) {
             System.out.println(teacher.toString());
         }
-
-        System.out.println("\n>>> End ...\n");
     }
 
     private static class Save implements Runnable {

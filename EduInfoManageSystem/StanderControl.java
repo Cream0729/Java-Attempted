@@ -113,6 +113,10 @@ public class StanderControl {
         return date;
     }
 
+    public boolean id (String id) {
+        return (id.matches("^" + PROVINCE + SUBJECT_COURSE + UNIQUE_CODE + "$"));
+    }
+
     public boolean date (String date) {
         return (date.matches("^" + "(20)(\\d{2})" + "$"));
     }

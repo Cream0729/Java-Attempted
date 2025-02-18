@@ -38,15 +38,15 @@ public class InfoInputStation {
                     case 3:
                         break label;
                     default:
-                        throw new Exception();
+                        throw new IllegalArgumentException();
                 }
-
-                if (stan.isValid(">>> 是否退出本次录入程序？")) {
-                    temp.save(false);
-                    break;
-                }
-            } catch (Exception ignored) {
+            } catch (IllegalArgumentException ignored) {
                 System.err.println("\n非法输入，请重试");
+            }
+
+            if (stan.isValid(">>> 是否退出本次录入程序？")) {
+                temp.save(false);
+                break;
             }
         }
     }
@@ -86,6 +86,8 @@ public class InfoInputStation {
                     System.out.println(">>> 本次数据未录入...");
                 }
 
+            } else {
+                throw new RuntimeException();
             }
         } while (stan.isValid(">>> 是否继续录入 [" + type + "] 数据？"));
     }
