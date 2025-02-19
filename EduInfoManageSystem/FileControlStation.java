@@ -89,6 +89,12 @@ public class FileControlStation {
             this.studentData = new HashSet<>(students);
             this.teacherData = new HashSet<>(teachers);
             this.file = new File("src" + File.separator + "EduInfoManageSystem", this.fileName + ".data");
+            File lb = new File("src", "EduInfoManageSystem");
+            if (!(lb.exists())) {
+                if (lb.mkdirs()) {
+                    System.out.println(">>> Creating " + lb.getAbsolutePath());
+                }
+            }
         }
 
         @Override
