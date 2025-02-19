@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 /**
  * 信息输入规范控制站点（工具类）
- * <p>基础硬性检测，为减免错误产生
+ * <p> 基础硬性检测，为减免错误产生
  */
 public class StanderControl {
     static Scanner sc = new Scanner(System.in);
