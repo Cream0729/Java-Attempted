@@ -57,7 +57,7 @@ public class SearchStation {
                     if (file.getName().endsWith(".data")) new FileControlStation(file.getName().split("\\.")[0]).read();
                 }
             } else {
-                System.err.println(">>> Couldn't find file\n");
+                System.err.println(">>> Couldn't find directory\n");
             }
         } else if (control.date(date)) {
             // 若与正则表达式相符，则成功执行搜索

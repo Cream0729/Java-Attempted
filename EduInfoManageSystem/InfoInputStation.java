@@ -9,9 +9,11 @@ public class InfoInputStation {
     private final HashSet<DataStation.Student> studentsTemp;
     private final HashSet<DataStation.Teacher> teachersTemp;
     private final FileControlStation temp;
+    private final String date;
 
     public InfoInputStation(String date) {
-        temp = new FileControlStation(date);
+        this.date = date;
+        temp = new FileControlStation(this.date);
         studentsTemp = temp.getStudentsTemp();
         teachersTemp = temp.getTeachersTemp();
     }
@@ -69,9 +71,9 @@ public class InfoInputStation {
                 System.out.print("Now, Enter job: ");
                 String job = input.next();
 
-                System.out.println("\n" + type + " {id=" + id + ", editDate='null'" + ", name=" + name + ", gender=" + gender + ", age=" + age + ", job=" + job + "}");
+                System.out.println("\n" + type + " {id=" + id + ", editDate='" + this.date + "', name=" + name + ", gender=" + gender + ", age=" + age + ", job=" + job + "}");
                 if (stan.isValid(">>> 是否录入以上数据？")) {
-                    studentsTemp.add(new DataStation.Student(id, "null", name, gender, age, job));
+                    studentsTemp.add(new DataStation.Student(id, this.date, name, gender, age, job));
                 } else {
                     System.out.println(">>> 本次数据未录入...");
                 }
@@ -83,9 +85,9 @@ public class InfoInputStation {
                 System.out.print("Now, Enter job: ");
                 String job = input.next();
 
-                System.out.println("\n" + type + " {id=" + id + ", editDate='null'" + ", name=" + name + ", gender=" + gender + ", age=" + age + ", type=" + tType + ", job=" + job + "}");
+                System.out.println("\n" + type + " {id=" + id + ", editDate='" + this.date + "', name=" + name + ", gender=" + gender + ", age=" + age + ", type=" + tType + ", job=" + job + "}");
                 if (stan.isValid(">>> 是否录入以上数据？")) {
-                    teachersTemp.add(new DataStation.Teacher(id, "null", name, gender, age, tType, job));
+                    teachersTemp.add(new DataStation.Teacher(id, this.date, name, gender, age, tType, job));
                 } else {
                     System.out.println(">>> 本次数据未录入...");
                 }

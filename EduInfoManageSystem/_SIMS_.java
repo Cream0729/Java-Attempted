@@ -12,7 +12,7 @@ public class _SIMS_ {
             System.out.println("\n============== S.I.M.S ==============");
             System.out.println("‖ <1> Add fresh personal information‖");
             System.out.println("‖ <2> Remove personal information - ‖");
-            System.out.println("‖ <3> Modified personal information ‖");
+            System.out.println("‖ <3> Modify personal information - ‖");
             System.out.println("‖ <4> Search personal information - ‖");
             System.out.println("‖ <5> Exit the S.I.M.S. - - - - - - ‖");
             System.out.println("=====================================");
@@ -25,8 +25,10 @@ public class _SIMS_ {
                             new InfoInputStation(control.date()).inputInformation();
                             break inter;
                         case "2":
+                            new ModifyInfoStation("remove");
                             break inter;
                         case "3":
+                            new ModifyInfoStation("modify");
                             break inter;
                         case "4":
                             new SearchStation();
