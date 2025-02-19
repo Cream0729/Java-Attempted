@@ -2,6 +2,14 @@ package EduInfoManageSystem;
 
 import java.util.Scanner;
 
+/**
+ * 本系统（学习阶段测验）
+ * <p> 开始时间：2025-2-15[14:30]
+ * <p> 完成时间：2025-2-19[10:55]
+ *
+ * @author Cream - 炫
+ * @version 3.00.00
+ */
 public class _SIMS_ {
     static Scanner sc = new Scanner(System.in);
     static StanderControl control = new StanderControl();
@@ -18,7 +26,7 @@ public class _SIMS_ {
             System.out.println("=====================================");
             inter:
             while (true) {
-                try {
+                try {   // 依选择分流
                     System.out.print(">>> Now, enter your choice : ");
                     switch (sc.next()) {
                         case "1":

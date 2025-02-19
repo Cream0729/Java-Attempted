@@ -17,6 +17,7 @@ public class ModifyInfoStation {
                 System.out.println("‖ <2> Teachers data ‖");
                 System.out.println("‖ <3> Exit - - - - -‖");
                 System.out.println("=====================");
+
                 System.out.print(">>> Now, enter your choice: ");
                 switch (sc.next()) {
                     case "1":
@@ -50,6 +51,7 @@ public class ModifyInfoStation {
             if (files != null) {
                 // 遍历并分配文件
                 for (File file : files) {
+                    // 传入对象，使之引用地址以直接操作对象
                     if (FileSearch(id, mov, type, file)) break;
                     System.err.println("\n>>> ID not found - - - - -");
                 }
@@ -68,6 +70,7 @@ public class ModifyInfoStation {
             if (student.getId() == Long.parseLong(id)) {
                 System.out.println();
                 System.out.println(student);
+
                 if (mov.equals("modify")) {
                     if (control.isValid(">>> 是否修改这个数据？")) {
                         new InfoModifyControl(fcs, student);
@@ -93,6 +96,7 @@ public class ModifyInfoStation {
             if (teacher.getId() == Long.parseLong(id)) {
                 System.out.println();
                 System.out.println(teacher);
+
                 if (mov.equals("modify")) {
                     if (control.isValid(">>> 是否修改这个数据？")) {
                         new InfoModifyControl(fcs, teacher);

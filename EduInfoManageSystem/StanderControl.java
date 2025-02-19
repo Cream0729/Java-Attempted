@@ -102,7 +102,7 @@ public class StanderControl {
         return Long.parseLong(id);
     }
 
-    public String date () {
+    public String date() {
         System.out.print("Now, enter date (yyyy): ");
         String date = sc.next();
         while (!(date.matches("^" + "(20)(\\d{2})" + "$"))) {
@@ -113,11 +113,11 @@ public class StanderControl {
         return date;
     }
 
-    public boolean id (String id) {
+    public boolean id(String id) {
         return (id.matches("^" + PROVINCE + SUBJECT_COURSE + UNIQUE_CODE + "$"));
     }
 
-    public boolean date (String date) {
+    public boolean date(String date) {
         return (date.matches("^" + "(20)(\\d{2})" + "$"));
     }
 }

@@ -17,7 +17,7 @@ public class SearchStation {
             System.out.println("‖ <4> Exit the search‖");
             System.out.println("======================");
             inter:
-            try {
+            try {   // 依选择分流
                 System.out.print("\nNow, enter your choice: ");
                 String choice = sc.next();
                 switch (choice) {
@@ -46,6 +46,7 @@ public class SearchStation {
 
     /**
      * 依照传入日期搜索数据
+     *
      * @param date 传入搜索日期（年）范围
      */
     private void search(String date) {
@@ -75,6 +76,7 @@ public class SearchStation {
 
     /**
      * 依照传入ID搜索全局数据
+     *
      * @param id 传入id
      */
     private void searchID(String id) {

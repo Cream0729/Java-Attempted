@@ -21,7 +21,7 @@ public class InfoInputStation {
     public void inputInformation() {
         label:
         while (true) {
-            try {
+            try {   // 依选择分流
                 System.out.println("\n=====信息录入=====");
                 System.out.println("‖ <1>学生信息录入 ‖");
                 System.out.println("‖ <2>教职信息录入 ‖");
@@ -55,6 +55,7 @@ public class InfoInputStation {
 
     /**
      * 传入预定的数据类型以保存数据
+     *
      * @param type 数据类型
      */
     private void personInformation(String type) {

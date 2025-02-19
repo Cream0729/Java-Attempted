@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class InfoModifyControl {
     static Scanner sc = new Scanner(System.in);
     static StanderControl control = new StanderControl();
+
     public InfoModifyControl(FileControlStation fcs, DataStation.Student student) {
         do {
             System.out.println("==============");
@@ -13,9 +14,10 @@ public class InfoModifyControl {
             System.out.println("‖ <3> Gender ‖");
             System.out.println("‖ <4> Job - -‖");
             System.out.println("==============");
+
             System.out.print(">>> Now, enter your choice: ");
             contChoice:
-            while (true) {
+            while (true) {  // 选择分流，并依据选择调用传入对象的set
                 switch (sc.next()) {
                     case "1":
                         System.out.print(">>> Now, enter Name: ");
@@ -39,6 +41,7 @@ public class InfoModifyControl {
                 }
             }
         } while (control.isValid(">>> 是否继续修改？"));
+
         System.out.println(student);
         if (control.isValid(">>> 是否保存本次修改")) {
             fcs.save(false);
@@ -56,9 +59,10 @@ public class InfoModifyControl {
             System.out.println("‖ <4> Job - -‖");
             System.out.println("‖ <5> Type - ‖");
             System.out.println("==============");
+
             System.out.print(">>> Now, enter your choice: ");
             contChoice:
-            while (true) {
+            while (true) {  // 选择分流，并依据选择调用传入对象的set
                 switch (sc.next()) {
                     case "1":
                         System.out.print(">>> Now, enter Name: ");
@@ -86,6 +90,7 @@ public class InfoModifyControl {
                 }
             }
         } while (control.isValid(">>> 是否继续修改？"));
+
         System.out.println(teacher);
         if (control.isValid(">>> 是否保存本次修改")) {
             fcs.save(false);
