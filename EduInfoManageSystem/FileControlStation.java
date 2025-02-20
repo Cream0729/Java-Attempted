@@ -16,13 +16,13 @@ public class FileControlStation {
             this.date = date;
             File file = new File("src" + File.separator + "EduInfoManageSystem", this.date + ".data");
             if (file.exists()) {
-                // 若在创建对象时文件存在，则复制数据到本类中缓存
+                // 若在创建对象时文件存在，则读取目标文件读取至对象中
                 ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
                 studentsTemp.addAll((HashSet<DataStation.Student>) ois.readObject());
                 teachersTemp.addAll((HashSet<DataStation.Teacher>) ois.readObject());
                 ois.close();
             } else {
-                // 若在创建对象时文件不存在，则生成一个默认数据
+                // 若在创建对象时文件不存在，则生成一个默认数据，由于id是0而无法被搜索到
                 studentsTemp.add(new DataStation.Student(0L, "editDate", "name", "gender", 99, "job"));
                 teachersTemp.add(new DataStation.Teacher(0L, "editDate", "name", "gender", 99, "type", "job"));
             }
@@ -61,16 +61,19 @@ public class FileControlStation {
             throw new RuntimeException();
         }
         (new Thread(new Save(this.date, this.studentsTemp, this.teachersTemp, prompt))).start();
+        // 执行新线程后清理数据，简单防止线程安全问题，并使执行save后整个类无法使用
         studentsTemp.clear();
         teachersTemp.clear();
         control = true;
     }
 
     public HashSet<DataStation.Student> getStudentsTemp() {
+        // 获取本对象所依据date读取的对象students
         return studentsTemp;
     }
 
     public HashSet<DataStation.Teacher> getTeachersTemp() {
+        // 获取本对象所依据date读取的对象teachers
         return teachersTemp;
     }
 
@@ -91,7 +94,7 @@ public class FileControlStation {
             this.file = new File("src" + File.separator + "EduInfoManageSystem", this.fileName + ".data");
             File lb = new File("src", "EduInfoManageSystem");
             if (!(lb.exists())) {
-                if (lb.mkdirs()) {
+                if (lb.mkdirs()) {  // 文件夹不存在，则新建一个数据保存库的文件夹
                     System.out.println(">>> Creating " + lb.getAbsolutePath());
                 }
             }
@@ -99,7 +102,7 @@ public class FileControlStation {
 
         @Override
         public void run() {
-            // 序列化并写入文件
+            // 序列化并写入本地文件（路径暂不支持更改）
             try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))) {
                 oos.writeObject(studentData);
                 oos.writeObject(teacherData);

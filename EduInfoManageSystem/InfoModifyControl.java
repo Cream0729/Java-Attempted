@@ -6,6 +6,11 @@ public class InfoModifyControl {
     static Scanner sc = new Scanner(System.in);
     static StanderControl control = new StanderControl();
 
+    /**
+     *
+     * @param fcs 传入执行保存的对象（更改文件使用）
+     * @param student 传入的个体对象student
+     */
     public InfoModifyControl(FileControlStation fcs, DataStation.Student student) {
         do {
             System.out.println("==============");
@@ -19,6 +24,7 @@ public class InfoModifyControl {
             contChoice:
             while (true) {  // 选择分流，并依据选择调用传入对象的set
                 switch (sc.next()) {
+                    // 更改已保存对象的数据（预设的set）
                     case "1":
                         System.out.print(">>> Now, enter Name: ");
                         student.setName(sc.next());
@@ -50,6 +56,11 @@ public class InfoModifyControl {
         }
     }
 
+    /**
+     *
+     * @param fcs 传入执行保存的对象（更改文件使用）
+     * @param teacher 传入的个体对象teacher
+     */
     public InfoModifyControl(FileControlStation fcs, DataStation.Teacher teacher) {
         do {
             System.out.println("==============");
@@ -64,6 +75,7 @@ public class InfoModifyControl {
             contChoice:
             while (true) {  // 选择分流，并依据选择调用传入对象的set
                 switch (sc.next()) {
+                    // 更改已保存对象的数据（预设的set）
                     case "1":
                         System.out.print(">>> Now, enter Name: ");
                         teacher.setName(sc.next());

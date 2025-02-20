@@ -17,7 +17,8 @@ public class StanderControl {
     final String UNIQUE_CODE = "((?!00000)\\d{5})";
 
     public void admin() {
-        while (true) {  // 管理员通行证
+        while (true) {
+            // 管理员通行证，目前使用硬编码，暂不进行操作
             System.out.print("Enter your account: ");
             String account = sc.next();
             System.out.print("Enter your password: ");

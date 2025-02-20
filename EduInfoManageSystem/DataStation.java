@@ -29,16 +29,8 @@ public class DataStation implements Serializable {
         return id;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
     public String getEditDate() {
         return editDate;
-    }
-
-    public void setEditDate(String editDate) {
-        this.editDate = editDate;
     }
 
     public String getName() {
@@ -91,10 +83,6 @@ public class DataStation implements Serializable {
             this.job = job;
         }
 
-        public String getJob() {
-            return job;
-        }
-
         public void setJob(String job) {
             this.job = job;
         }
@@ -138,16 +126,8 @@ public class DataStation implements Serializable {
             this.job = job;
         }
 
-        public String getType() {
-            return type;
-        }
-
         public void setType(String type) {
             this.type = type;
-        }
-
-        public String getJob() {
-            return job;
         }
 
         public void setJob(String job) {

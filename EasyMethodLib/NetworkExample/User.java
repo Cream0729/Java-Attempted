@@ -21,12 +21,14 @@ public class User {
             DatagramSocket socket = new DatagramSocket();
             while (true) {
                 while (control) Thread.sleep(100);
-                System.out.print(">>> " + name + ": ");
-                String s = sc.next();
-                byte[] msg = ("> " + name + ": " + s).getBytes();
-                DatagramPacket dp = new DatagramPacket(msg, msg.length, addr, 10086);
-                socket.send(dp);
-                control = false;
+                while (!control) {
+                    System.out.print(">>> " + name + ": ");
+                    String s = sc.next();
+                    byte[] msg = ("> " + name + ": " + s).getBytes();
+                    DatagramPacket dp = new DatagramPacket(msg, msg.length, addr, 10086);
+                    socket.send(dp);
+                    control = false;
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -41,9 +43,10 @@ class RunnableThread implements Runnable {
         try {
             DatagramSocket socket = new DatagramSocket(10086);
             while (true) {
-                User.control = true;
                 DatagramPacket packet = new DatagramPacket(new byte[1024 * 1024], 1024 * 1024);
                 socket.receive(packet);
+
+                User.control = true;
                 System.out.println(new String(packet.getData(), 0, packet.getLength()));
                 User.control = false;
             }

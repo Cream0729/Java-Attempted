@@ -54,7 +54,7 @@ public class SearchStation {
             // 若为“All”则在规定放置文件夹中全局搜索
             File[] files = new File("src", "EduInfoManageSystem").listFiles();
             if (files != null) {
-                for (File file : files) {
+                for (File file : files) {   // 判断文件是否合法，若合法则执行所调用FileControlStation中的read
                     if (file.getName().endsWith(".data")) new FileControlStation(file.getName().split("\\.")[0]).read();
                 }
             } else {
@@ -82,7 +82,7 @@ public class SearchStation {
     private void searchID(String id) {
         System.out.println("\n>>> Waiting for search ID...");
         if (!control.id(id)) {
-            // 若与规范ID的正则表达式不符，则直接无法搜索
+            // 若与规范ID的正则表达式不符，则直接无法搜索，节约时间
             System.err.println(">>> ID not found\n");
         } else {
             File[] files = new File("src" + File.separator + "EduInfoManageSystem").listFiles();

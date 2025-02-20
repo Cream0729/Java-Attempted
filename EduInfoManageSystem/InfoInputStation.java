@@ -74,6 +74,7 @@ public class InfoInputStation {
 
                 System.out.println("\n" + type + " {id=" + id + ", editDate='" + this.date + "', name=" + name + ", gender=" + gender + ", age=" + age + ", job=" + job + "}");
                 if (stan.isValid(">>> 是否录入以上数据？")) {
+                    // 对所搜索到的数据进行处理
                     studentsTemp.add(new DataStation.Student(id, this.date, name, gender, age, job));
                 } else {
                     System.out.println(">>> 本次数据未录入...");
@@ -88,6 +89,7 @@ public class InfoInputStation {
 
                 System.out.println("\n" + type + " {id=" + id + ", editDate='" + this.date + "', name=" + name + ", gender=" + gender + ", age=" + age + ", type=" + tType + ", job=" + job + "}");
                 if (stan.isValid(">>> 是否录入以上数据？")) {
+                    // 对所搜索到的数据进行处理
                     teachersTemp.add(new DataStation.Teacher(id, this.date, name, gender, age, tType, job));
                 } else {
                     System.out.println(">>> 本次数据未录入...");

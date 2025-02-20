@@ -20,8 +20,5 @@ public class IPUsed {
         byte[] msg = ("你好哇！").getBytes();
         DatagramPacket packet = new DatagramPacket(msg, msg.length, addr, port);
         socket.send(packet);
-
-
-
     }
 }

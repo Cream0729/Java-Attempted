@@ -12,6 +12,7 @@ public class ModifyInfoStation {
         while (true) {
             ty:
             try {
+                // 选择操作数据的类型
                 System.out.println("\n======= Types =======");
                 System.out.println("‖ <1> Students data ‖");
                 System.out.println("‖ <2> Teachers data ‖");
@@ -45,6 +46,12 @@ public class ModifyInfoStation {
         }
     }
 
+    /**
+     *
+     * @param id 传入目标id
+     * @param mov 操作方式，默认modify & remove
+     * @param type 数据类型选择，方便对单操作，默认student & teacher
+     */
     private void InfoControl(String id, String mov, String type) {
         if (control.id(id)) {
             File[] files = new File("src" + File.separator + "EduInfoManageSystem").listFiles();
@@ -64,8 +71,9 @@ public class ModifyInfoStation {
     private boolean FileSearch(String id, String mov, String type, File file) {
         FileControlStation fcs = new FileControlStation(file.getName().split("\\.")[0]);
 
-        // student数据操作
+        // student数据操作，第一次读取fcs为student
         for (DataStation.Student student : fcs.getStudentsTemp()) {
+            // 非目标type则中断搜索，节约空间时间
             if (!(type.equals("student"))) break;
             if (student.getId() == Long.parseLong(id)) {
                 System.out.println();
@@ -90,8 +98,9 @@ public class ModifyInfoStation {
             }
         }
 
-        // teacher数据操作
+        // teacher数据操作，第二次读取fcs为teacher
         for (DataStation.Teacher teacher : fcs.getTeachersTemp()) {
+            // 非目标type则中断搜索，节约空间时间
             if (!(type.equals("teacher"))) break;
             if (teacher.getId() == Long.parseLong(id)) {
                 System.out.println();

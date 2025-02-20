@@ -3,12 +3,13 @@ package EduInfoManageSystem;
 import java.util.Scanner;
 
 /**
- * 本系统（学习阶段测验）
+ * 本系统为自行学习阶段测验，后续不进行维护
  * <p> 开始时间：2025-2-15[14:30]
  * <p> 完成时间：2025-2-19[10:55]
+ * <p> 注释更新：2025-2-20[9:50]
  *
  * @author Cream - 炫
- * @version 3.00.00
+ * @version 3.00.00v（旧版文件已无法找到）
  */
 public class _SIMS_ {
     static Scanner sc = new Scanner(System.in);
@@ -26,7 +27,8 @@ public class _SIMS_ {
             System.out.println("=====================================");
             inter:
             while (true) {
-                try {   // 依选择分流
+                try {
+                    // 依选择分流，直接进行操作
                     System.out.print(">>> Now, enter your choice : ");
                     switch (sc.next()) {
                         case "1":
@@ -51,6 +53,7 @@ public class _SIMS_ {
                     System.err.println("\nentered the wrong choice, please try again.");
                 }
             }
+            // 输入判断是否结束程序
             if (control.isValid(">>> 是否退出 [S.I.M.S] 系统？")) {
                 System.out.println("\n>>> S.I.M.S 已退出...");
                 break;
