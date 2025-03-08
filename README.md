@@ -1,7 +1,7 @@
 # Java-Attempted
 
 这些只是我用于记录自己学习历程的代码，于【2024-10-13】开始学习\
-【Web学习过程网站：http://luckwindbell.zhywyt.me 】\
+【Web学习过程网站：http://MyCodeLib.cn 】\
 目前已完成：JavaSE基本使用，HTML-5，CSS-3;\
 进程中：JavaScript，MySQL，Vue3，算法；\
 [TheVeryBeginning]是我最初的、未整理的代码（学习2个月末终止维护）\
