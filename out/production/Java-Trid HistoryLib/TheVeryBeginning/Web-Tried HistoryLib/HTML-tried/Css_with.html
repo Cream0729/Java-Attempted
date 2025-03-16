@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Css联用</title>
+</head>
+<link rel="stylesheet" href="style/Css_with.css">
+
+<body>
+    <h1>✧✧✧ 测试用标题显示 ✧✧✧</h1>
+    <p class="HD"> >>>以下内容均为常用标签，其余不常用的倘若有需要可利用互联网搜索<<< </p>
+    <div class="into">
+        <div class="box">
+            <h4>你好！</h4>
+        </div>
+        <div class="final">
+            <H3>HMTL元素分类：</H3>
+            <ol>
+                <li>块元素(可设置宽高，独立成行)：h1~6，p，div，ul，li。</li>
+                <li>行内元素(不可设置宽高，不独立成行)：a，span。</li>
+                <li>行内块元素(可设置宽高，不独立成行)：img，input，button。</li>
+            </ol>
+            <h3>display属性：</h3>
+            <ul>
+                <li>bolck：块元素。</li>
+                <li>inline：行内元素。</li>
+                <li>inline：行内块元素。</li>
+                <li>none：隐藏元素。(list-style: none可以隐藏序号)</li>
+            </ul>
+        </div>
+        <img src="images/HAHA.gif" alt="">
+        <a href="https://www.bilibili.com/" class="mice"> >点击跳转至Bilibili< </a>
+                <div class="clear"></div>
+                <div class="Css">
+                    <h3>Css定位(position)</h3>
+                    <ol>
+                        <li> >绝对定位：absolute(脱离文档流) </li>
+                        <li> >相对定位：relativr(不脱离文档流) </li>
+                        <li> >固定定位：fixed(脱离文档流-视窗) </li>
+                        <li> >坐标属性(非定位元素不起作用) ->top/left/right/bottom/z-index</li>
+                    </ol>
+                </div>
+    </div>
+    <button class="pos"><a href="#">点击可直接返回到网页最上方</a></button>
+    <div class="Tran">
+        <h3>形变(transfrom)</h3>
+        <p>| 整个盒子模型内所有一起形变(以下为常用)</p>
+        <ol>
+            <li>rotate：旋转；其deg表示角度>>>[例旋转45°<顺时针>：transform: rotate(45deg);]</li>
+            <li>scale：缩放>>>[例缩放1.5倍：transform: scale(1.5);]</li>
+            <li>translate：位移>>>[例X+50px;Y+100px：transform: transla(50px,100px);]</li>
+            <li>同时使用例子：transform: scale(1.5) rotate(45deg);(中间空格)</li>
+        </ol>
+        <h3 class="TS">过渡效果(transition)</h3>
+        <ul>
+            <li>简写：[transition: 属性 秒数 函数 延迟,属性 秒数 函数 延迟, ......]</li>
+            <li>过渡的属性>>>[例：transition-property:Name;]</li>
+            <li>过渡的时间>>>[例：transition-duration: 1s;]</li>
+            <li>过渡函数[transition-timing-function]</li>
+            <ol>
+                <li>ease：开始&结束慢，中间快<默认> </li>
+                <li>linear：匀速</li>
+                <li>ease-in：开始慢</li>
+                <li>ease-out：结束慢</li>
+                <li>ease-in-out：和ease类似，但幅度更大</li>
+            </ol>
+            <li>过渡的延迟[例：transition-delay: 1s;]</li>
+            <li>设置其原点[例：transfrom-origin: X Y;<默认0 0>]</li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

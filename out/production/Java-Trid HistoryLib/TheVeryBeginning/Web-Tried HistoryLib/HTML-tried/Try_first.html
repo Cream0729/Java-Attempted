@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试用标题</title>
+    <style>
+        h1 {
+            color: brown;
+        }
+
+        ul {
+            color: indigo;
+        }
+
+        * {
+            text-align: center;
+        }
+
+        img {
+            width: 90px;
+        }
+
+        h1::before,
+        h1::after {
+            content: "----------------";
+        }
+
+        .try:hover {
+            color: red;
+        }
+
+        .box {
+            height: 1000px;
+            width: 800px;
+            border: 15px;
+            margin: auto;
+            z-index: 10;
+            /*设置z轴以面向自己高度调整*/
+        }
+        .box-web{
+            height: auto;
+            width: 350px;
+            margin: auto;
+        }
+        .colorWeb{
+            color: blue;
+        }
+        .colorWeb:hover{
+            color: red;
+        }
+    </style>
+</head>
+
+</table>
+
+<body>
+    <div class="box">
+        <h1>信息录入</h1>
+        <p>用于后续个人信息统计，提升查找效率</p>
+        <label>学号</label>
+        <input type="text" placeholder="输入学号">
+        <label>姓名</label>
+        <input type="text" placeholder="输入姓名">
+        <label>性别>>></label>
+        <label>男</label>
+        <input type="radio" name="sex">
+        <label>女</label>
+        <input type="radio" name="sex">
+        <p>输入你的地址</p>
+        <label>你的邮箱地址</label>
+        <input type="text" placeholder="地址">
+        <select>
+            <option>@qq.com</option>
+            <option>@Outlook.com</option>
+            <option>@168.com</option>
+            <option>@10086.com</option>
+            <option>@sohu.com</option>
+            <option>@sina.com</option>
+        </select>
+        <label>输入你的密码</label>
+        <input type="password" placeholder="输入密码">
+        <div class="box-web">
+            <h2>常用的网站推荐</h2>
+            <ol>
+                <li><a class="colorWeb" href="https://www.bilibili.com/">>>>点击跳转到【Bilibili】<<< </a>
+                </li>
+                <li><a class="colorWeb" href="https://www.baidu.com/">>>>点击跳转到【百度】<<< </a>
+                </li>
+                <li><a class="colorWeb" href="https://store.steampowered.com/">>>>点击跳转到【Steam】<<< </a>
+                </li>
+            </ol>
+        </div>
+        <h1>原有人员信息列表</h1>
+        <table border="1" align="center">
+            <thead>
+                <th colspan="2" class="try">序列号</th>
+                <th colspan="3" class="try">个人信息</th>
+            </thead>
+            <tbody>
+                <tr class="ell">
+                    <td rowspan="4">高等人员列表</td>
+                    <td>序号</td>
+                    <td>姓名</td>
+                    <td>性别</td>
+                    <td>年龄</td>
+                </tr>
+                <tr class="try">
+                    <td>1</td>
+                    <td>小明</td>
+                    <td>男</td>
+                    <td>15</td>
+                </tr>
+                <tr class="try">
+                    <td>2</td>
+                    <td>小红</td>
+                    <td>女</td>
+                    <td>13</td>
+                </tr>
+                <tr class="try">
+                    <td>3</td>
+                    <td>嘉帆</td>
+                    <td>男</td>
+                    <td>70+</td>
+                </tr>
+                <tr class="try">
+                    </span>
+                    <td rowspan="99" class="tried">基础人员列表</td>
+                    <td>4</td>
+                    <td>小亮</td>
+                    <td>男</td>
+                    <td>17</td>
+                </tr>
+            </tbody>
+            <img src="images/HAHA.gif" alt="无法加载">
+    </div>
+</body>
+
+</html>

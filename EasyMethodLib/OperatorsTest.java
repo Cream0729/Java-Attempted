@@ -38,6 +38,11 @@ public class OperatorsTest {
         System.out.println();
 
         System.out.println(">>> ThisTime : example = " + example);
+        System.out.println("After: example /= 10 -> " + (example /= 10));
+        System.out.println("Before: example /= 10 -> " + example);
+        System.out.println();
+
+        System.out.println(">>> ThisTime : example = " + example);
         System.out.println("After: example %= 10 -> " + (example %= 10));
         System.out.println("Before: example %= 10 -> " + example);
         System.out.println();
